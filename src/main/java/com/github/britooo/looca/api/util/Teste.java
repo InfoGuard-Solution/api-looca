@@ -16,6 +16,11 @@ public class Teste {
 
         Processador processador = new Processador();
 
+
+        // ------------------------------------------ //
+        // ADO, A, ADO, SE VOCÊ LEU É UM VIADO        //
+        // ------------------------------------------ //
+
         new Timer().scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
