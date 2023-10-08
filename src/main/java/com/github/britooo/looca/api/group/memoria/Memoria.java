@@ -43,7 +43,7 @@ public class Memoria {
   @Override
   public String toString() {
 
-    final StringBuilder sb = new StringBuilder("Memoria").append("\n");
+    final StringBuilder sb = new StringBuilder("MEMORIA RAM:").append("\n");
 
     sb.append("Em uso: ")
         .append(Conversor.formatarBytes(getEmUso()))
@@ -54,8 +54,8 @@ public class Memoria {
         .append("\n");
 
     sb.append("Total: ")
-        .append(Conversor.formatarBytes(getTotal()))
-        .append("\n");
+        .append(Conversor.formatarBytes(getTotal()));
+        //.append("\n");
 
     return sb.toString();
   }

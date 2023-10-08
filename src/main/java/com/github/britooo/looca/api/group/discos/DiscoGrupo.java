@@ -3,6 +3,7 @@ package com.github.britooo.looca.api.group.discos;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.github.britooo.looca.api.util.Conversor;
 import oshi.SystemInfo;
 import oshi.hardware.HWDiskStore;
 import oshi.hardware.HardwareAbstractionLayer;
@@ -21,11 +22,14 @@ public class DiscoGrupo {
    * @return Lista de Volume.
    */
   public List<Volume> getVolumes() {
-    return this.os.getFileSystem()
+    return this.os
+
+          .getFileSystem()
         .getFileStores()
         .stream()
         .map(DiscoGrupo::of)
         .collect(Collectors.toList());
+
   }
 
   /**
@@ -79,6 +83,25 @@ public class DiscoGrupo {
       return null;
     }
     return new Disco(disco);
+  }
+  @Override
+  public String toString() {
+
+    final StringBuilder sb = new StringBuilder("SSD:").append("\n");
+
+    sb.append("Em uso: ")
+            .append(Conversor.formatarBytes(getTamanhoTotal()))
+            .append("\n");
+
+    //sb.append("Disponível: ")
+    //        .append(Conversor.formatarBytes(getDisponivel()))
+    //        .append("\n");
+    //
+    //sb.append("Total: ")
+    //        .append(Conversor.formatarBytes(getTotal()))
+    //        .append("\n");
+
+    return sb.toString();
   }
 
 }

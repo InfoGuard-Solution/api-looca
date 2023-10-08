@@ -1,5 +1,6 @@
 package com.github.britooo.looca.api.group.temperatura;
 
+import com.github.britooo.looca.api.group.processador.Processador;
 import oshi.SystemInfo;
 import oshi.hardware.HardwareAbstractionLayer;
 

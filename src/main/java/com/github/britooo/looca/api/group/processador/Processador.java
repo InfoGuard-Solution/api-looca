@@ -190,7 +190,7 @@ public class Processador {
         .append("\n");
 
     sb.append("Em Uso: ")
-        .append(String.format("%.0f", getUso()))
+        .append(String.format("%.1f", getUso()))
         .append("\n");
 
     return sb.toString();
