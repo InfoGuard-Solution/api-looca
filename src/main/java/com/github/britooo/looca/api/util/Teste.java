@@ -52,15 +52,15 @@ public class Teste {
 
                  out.println("------------------------------------------------");
 
-                //Disco
-                //out.println("DISCO:");
-                //System.out.println("Tamanho Total: "+Conversor.formatarBytes(disco.getTamanhoTotal()));
+                Disco
+                out.println("DISCO:");
+                System.out.println("Tamanho Total: "+Conversor.formatarBytes(disco.getTamanhoTotal()));
                 //out.println(disco.getVolumes());
+                
                 //Informações da Rede
                 //out.println(looca.getRede());
                 //out.println(looca.getRede().getGrupoDeInterfaces().getInterfaces());
                 //out.println(looca.getRede().getParametros().getServidoresDns());
-
 
             }
         }, 0, 3000);
