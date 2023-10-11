@@ -1,4 +1,3 @@
-package com.github.britooo.looca.api.util;
 
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.DiscoGrupo;
@@ -10,6 +9,7 @@ import com.github.britooo.looca.api.group.rede.RedeInterface;
 import com.github.britooo.looca.api.group.rede.RedeParametros;
 import com.github.britooo.looca.api.group.sistema.Sistema;
 import com.github.britooo.looca.api.group.temperatura.Temperatura;
+import com.github.britooo.looca.api.util.Conversor;
 
 import java.sql.Time;
 import java.util.Timer;
@@ -17,13 +17,15 @@ import java.util.TimerTask;
 
 import static java.lang.System.*;
 
-public class Teste {
+public class Main {
     public static void main(String[] args) {
         Looca looca = new Looca();
+        Conversor conversor = new Conversor();
+        DiscoUso discoUso = new DiscoUso();
+
         Processador processador = new Processador();
         Temperatura temperatura = new Temperatura();
         DiscoGrupo disco = new DiscoGrupo();
-        Conversor conversor = new Conversor();
 
 
         new Timer().scheduleAtFixedRate(new TimerTask() {
@@ -35,14 +37,12 @@ public class Teste {
                 out.println("Marca: "+processador.getFabricante());
                 //Nome CPU
                 out.println("Nome: "+looca.getProcessador().getIdentificador());
-
                 //ID CPU
                 out.println("ID: "+looca.getProcessador().getId()+"\n");
-
                 //Status CPU
                 out.println(String.format("CPU:\n" +
                         "Atividade CPU: %.1f\n" +
-                            //executar o OpenHardwareMonitor para TEMPERATURA funcionar
+                        //executar o OpenHardwareMonitor para TEMPERATURA funcionar
                         "Temperatura CPU: %.1f",looca.getProcessador().getUso(),temperatura.getTemperatura()));
 
                 out.println("------------------------------------------------");
@@ -50,13 +50,18 @@ public class Teste {
                 //Informações Memória RAM
                 out.println(looca.getMemoria());
 
-                 out.println("------------------------------------------------");
+                out.println("------------------------------------------------");
 
-                Disco
+                //Disco
                 out.println("DISCO:");
                 System.out.println("Tamanho Total: "+Conversor.formatarBytes(disco.getTamanhoTotal()));
+
+                //NÃO ESTÁ FUNCIONANDO
+                out.println(discoUso);
+
+
                 //out.println(disco.getVolumes());
-                
+
                 //Informações da Rede
                 //out.println(looca.getRede());
                 //out.println(looca.getRede().getGrupoDeInterfaces().getInterfaces());
@@ -64,11 +69,5 @@ public class Teste {
 
             }
         }, 0, 3000);
-
-
-
-
-
-
-}
+    }
 }
